@@ -11,4 +11,13 @@ import com.app.model.data.*;
 @EqualsAndHashCode(callSuper=false)
 public class SingleDataSeriseResponse extends OperationResponse {
     private List<SingleSerise> items;
+
+	public List<SingleSerise> getItems() {
+		return items;
+	}
+
+	public void setItems(List<SingleSerise> items) {
+		this.items = items;
+	}
+    
 }

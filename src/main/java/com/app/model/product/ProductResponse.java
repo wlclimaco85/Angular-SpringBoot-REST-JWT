@@ -10,4 +10,14 @@ import com.app.model.response.*;
 public class ProductResponse extends PageResponse {
   @ApiModelProperty(required = true, value = "")
   private List<Product> items;
+
+public List<Product> getItems() {
+	return items;
+}
+
+public void setItems(List<Product> items) {
+	this.items = items;
+}
+  
+  
 }
