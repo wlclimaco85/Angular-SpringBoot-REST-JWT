@@ -1,4 +1,5 @@
-<div class="no-margin">  <!-- class="main-container" will create fixed height container -->
+<div class="no-margin">
+    <!-- class="main-container" will create fixed height container -->
 
     <!--Alert -->
     <div *ngIf="showAppAlert" class="alert alert-app-level ">
@@ -18,24 +19,28 @@
     <!-- Main App Header -->
     <header class="header header-2">
         <div class="branding">
-            <div style="width:40px;margin-right:10px;"><s-logo></s-logo></div>
+            <div style="width:40px;margin-right:10px;">
+                <s-logo></s-logo>
+            </div>
             <!-- clr-icon shape="target" class="is-solid is-inverse"></clr-icon -->
-            <span class="title">SprinGular</span>
+            <span class="title">SprinGulareeeee</span>
         </div>
         <div class="header-nav">
-            <a *ngFor="let header of appHeaderItems let idx = index" class="nav-link" [routerLink]="header.href" routerLinkActive="active" ><span class="nav-text">{{ header.label }}</span></a>
+            <a *ngFor="let header of appHeaderItems let idx = index" class="nav-link" [routerLink]="header.href" routerLinkActive="active"><span class="nav-text">{{ header.label }}</span></a>
         </div>
         <div class="header-actions">
             <label style="line-height: 60px;"> {{userName}}</label>
-            <a [routerLink]="'/logout'" class="nav-link nav-text"> <clr-icon shape="power"></clr-icon></a>
+            <a [routerLink]="'/logout'" class="nav-link nav-text">
+                <clr-icon shape="power"></clr-icon>
+            </a>
         </div>
     </header>
 
     <!-- Sub Nav Item for Header Items -->
-    <nav *ngIf ="appHeaderItems[selectedHeaderItemIndex].subNav && appHeaderItems[selectedHeaderItemIndex].subNav.length > 0 " class="subnav" >
+    <nav *ngIf="appHeaderItems[selectedHeaderItemIndex].subNav && appHeaderItems[selectedHeaderItemIndex].subNav.length > 0 " class="subnav">
         <ul class="nav">
             <li *ngFor="let subNavItem of appHeaderItems[selectedHeaderItemIndex].subNav let idx=index" class="nav-item">
-                <a class="nav-link" [routerLink]="subNavItem.href" routerLinkActive="active" >{{ subNavItem.label }}</a>
+                <a class="nav-link" [routerLink]="subNavItem.href" routerLinkActive="active">{{ subNavItem.label }}</a>
             </li>
         </ul>
     </nav>
