@@ -1,46 +1,116 @@
-<!doctype html>
+﻿<!-- Author: Ranjithprabhu K
+     Date: 24 Dec 2015
+	 Author URL: http://ranjithprabhu.in
+	 Version: 1.0.0
+--->
+
+<!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Web UIII 2</title>
-    <!-- Use This only when serving from SpringBoot
-    <base href="/webui/">
-  -->
-    <!-- Use This when using ng serve   -->
-    <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- link rel="icon" type="image/x-icon" href="favicon.ico" -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/font-awesome.min.css">
-    <script type="text/javascript" src="./assets/externos/jquery/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="./assets/externos/angular/angular.js"></script>
-    <script type="text/javascript" src="./assets/externos/angular/angular-touch.js"></script>
-    <script type="text/javascript" src="./assets/externos/angular/angular-animate.min.js"></script>
-    <script type="text/javascript" src="./assets/externos/angular/angular-aria.min.js"></script>
-    <script type="text/javascript" src="./assets/externos/angular/angular-sanitize.min.js"></script>
-    <script type="text/javascript" src="./assets/externos/ui-grid/ui-grid.modified.js"></script>
-    <script type="text/javascript" src="./assets/externos/numeral/numeral.min.js"></script>
-    <script type="text/javascript" src="./assets/externos/moment/moment.min.js"></script>
-    <script type="text/javascript" src="./assets/externos/loading-bar/loading-bar.min.js"></script>
-    <script type="text/javascript" src="./assets/externos/translate/angular-translate.js"></script>
-    <script type="text/javascript" src="./assets/externos/sortable/sortable.min.js"></script>
-    <script type="text/javascript" src="./assets/externos/tinymce/tinymce.min.js"></script>
-    <script type="text/javascript" src="./assets/externos/tinymce/uitinymce.js"></script>
-    <script type="text/javascript" src="./assets/externos/tinymce/langs/pt_BR.js"></script>
-    <script type="text/javascript" src="./assets/externos/tinymce/langs/en_CA.js"></script>
-    <script type="text/javascript" src="./assets/externos/ace/ace.min.js"></script>
-    <script type="text/javascript" src="./assets/externos/clipboard/clipboard.min.js"></script>
-    <script type="text/javascript" src="./assets/externos/ui-mask/mask.min.js"></script>
-    <script type="text/javascript" src="./assets/externos/ag-grid/ag-grid-enterprise.js"></script>
-    <script type="text/javascript" src="./assets/externos/sf/sf.js"></script>
-    <script type="text/javascript" src="./assets/externos/sf/info.js"></script>
-    <script type="text/javascript" src="./assets/externos/sf/PCSF.js"></script>
-    <script src="./assets/script/snk.js">
-    </script>
+    <title>Angular Bootstrap Dashboard by Ranjithprabhu</title>
+    <meta name="description" content="Angular Bootstrap Dashboard" />
+    <meta name="keywords" content="Angular Bootstrap Dashboard" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <link href="./assets/script/angular-material/angular-material.min.css" rel="stylesheet" />
+    <!--CSS-->
+    <link href="./assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="./assets/css/site.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+    <link href="./assets/css/nga.all.min.css" rel="stylesheet" />
+    <link href="./assets/css/themes.css" rel="stylesheet" />
+    <link href="./assets/css/dashboard.css" rel="stylesheet" />
+    <link href="./assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="./assets/script/bootstrap-slider/slider.css" rel="stylesheet" />
+    <link href="./assets/css/flexslider.css" rel="stylesheet" />
+    <link href="./assets/script/owl-carousel/owl.theme.css" rel="stylesheet" />
+    <link href="./assets/script/owl-carousel/owl.transitions.css" rel="stylesheet" />
+    <link href="./assets/script/owl-carousel/owl.carousel.css" rel="stylesheet" />
 </head>
 
-<body>
-    <app-root>Loading...</app-root>
+<body ng-app="app" class="hold-transition sidebar-mini {{theme}} {{layout}}">
+    <!--Scripts-->
+
+    <script src="./assets/script/jquery.min.js"></script>
+    <!-- <script src="./assets/script/bootstrap.min.js"></script> -->
+    <script src="./assets/script/bootstrap-slider/bootstrap-slider.js"></script>
+    <script src="./assets/script/jquery/jquery-1.7.2.min.js"></script>
+    <script src="./assets/script/angular/angular.js"></script>
+    <script src="./assets/script/angular/angular-touch.js"></script>
+    <script src="./assets/script/angular/angular-animate.min.js"></script>
+    <script src="./assets/script/angular/angular-aria.min.js"></script>
+    <script src="./assets/script/angular/angular-sanitize.min.js"></script>
+    <script src="./assets/script/ui-grid/ui-grid.modified.js"></script>
+    <script src="./assets/script/numeral/numeral.min.js"></script>
+    <script src="./assets/script/moment/moment.min.js"></script>
+    <script src="./assets/script/loading-bar/loading-bar.min.js"></script>
+    <script src="./assets/script/translate/angular-translate.js"></script>
+    <script src="./assets/script/sortable/sortable.min.js"></script>
+    <script src="./assets/script/tinymce/tinymce.min.js"></script>
+    <script src="./assets/script/tinymce/uitinymce.js"></script>
+    <script src="./assets/script/tinymce/langs/pt_BR.js"></script>
+    <script src="./assets/script/tinymce/langs/en_CA.js"></script>
+    <script src="./assets/script/ace/ace.min.js"></script>
+    <script src="./assets/script/clipboard/clipboard.min.js"></script>
+    <script src="./assets/script/ui-mask/mask.min.js"></script>
+    <script src="./assets/script/ag-grid/ag-grid-enterprise.js"></script>
+    <script src="./assets/script/sf/sf.js"></script>
+    <script src="./assets/script/sf/info.js"></script>
+    <script src="./assets/script/sf/PCSF.js"></script>
+    <script src="./assets/script/snk.js"></script>
+
+    <!-- <script src="./assets/script/angular.min.js"></script> -->
+
+    <script src="./assets/script/angular-animate.min.js"></script>
+    <script src="./assets/script/angular-ui-router-min.js"></script>
+    <script src="./assets/script/angular-resource.js"></script>
+    <script src="./assets/script/knob/jquery.knob.js"></script>
+    <script src="./assets/script/Chart.min.js"></script>
+    <script src="./assets/script/owl-carousel/owl.carousel.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="./assets/script/angular-material.min.js"></script>
+    <script src="./assets/script/angular-aria.min.js"></script>
+    <script src="./assets/script/angular-messages.min.js"></script>
+
+    <script src="./assets/script/angular-flash.js"></script>
+    <script src="./assets/script/angular-sanitize.js"></script>
+    <!-- <script src="./assets/script/ui-bootstrap-tpls-0.13.0.min.js"></script> -->
+
+    <!--Common-->
+
+
+    <script src="app/common/config.js"></script>
+
+    <!--main app-->
+    <script src="app/app.js"></script>
+    <script src="app/common/appCtrl.js"></script>
+    <script src="app/services/apiService.js"></script>
+
+    <!--Login Module-->
+    <script src="app/modules/login/loginMgmt.js"></script>
+    <script src="app/modules/login/loginService.js"></script>
+    <script src="app/modules/login/loginCtrl.js"></script>
+
+    <!-- Dashboard Module -->
+    <script src="app/modules/dashboard/dashboardApplication.js"></script>
+    <script src="app/modules/dashboard/dashboardService.js"></script>
+    <!-- Controllers -->
+    <script src="app/modules/dashboard/controllers/websites.js"></script>
+    <script src="app/modules/dashboard/controllers/about.js"></script>
+    <script src="app/modules/dashboard/controllers/achievements.js"></script>
+    <script src="app/modules/dashboard/controllers/contact.js"></script>
+    <script src="app/modules/dashboard/controllers/education.js"></script>
+    <script src="app/modules/dashboard/controllers/experience.js"></script>
+    <script src="app/modules/dashboard/controllers/gallery.js"></script>
+    <script src="app/modules/dashboard/controllers/home.js"></script>
+    <script src="app/modules/dashboard/controllers/portfolio.js"></script>
+    <script src="app/modules/dashboard/controllers/recent.js"></script>
+    <script src="app/modules/dashboard/controllers/skills.js"></script>
+    <div flash-message="5000"></div>
+    <ui-view></ui-view>
+
 </body>
 
 </html>

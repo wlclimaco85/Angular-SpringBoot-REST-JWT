@@ -1,0 +1,1221 @@
+{
+    "name": "bpmnSnkModeler",
+    "uri": "http://sankhya.com.br/schema/bpmn/bpmnSnkModeler",
+    "prefix": "bpmnsnk",
+    "xml": {
+        "tagAlias": "lowerCase"
+    },
+    "associations": [],
+    "emumerations": [],
+    "types": [
+        {
+            "name": "EventDefinitionExtension",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "codUsuExec",
+                    "type": "Integer",
+                    "isAttr": true
+                }
+            ]
+        },
+        {
+            "name": "CallActivity",
+            "isAbstract": true,
+            "extends": [
+              "bpmn:CallActivity"
+            ]
+        },
+		{
+			"name": "CallActivityExtension",
+			"superClass": [ "Element" ],
+			"properties": [
+				{
+					"name": "calledElement",
+					"type": "String",
+					"isAttr": true
+				},
+				{
+					"name": "camunda:caseBinding",
+					"type": "String",
+					"isAttr": true
+				},
+				{
+					"name": "camunda:variableMappingClass",
+					"type": "String",
+					"isAttr": true
+				},
+				{
+					"name": "codigoProcesso",
+					"type": "codigoProcesso",
+					"isMany": true
+				},
+                {
+                    "name": "dadosEntrada",
+                    "type": "dadosEntrada",
+                    "isMany": true
+                },
+                {
+                    "name": "dadosRetorno",
+                    "type": "dadosRetorno",
+                    "isMany": true
+                }
+            ]
+        },
+        {
+        	"name": "codigoProcesso",
+			"superClass": [ "CallActivityExtension" ],
+            "properties": [
+            	{
+                    "name": "id",
+                    "type": "Integer",
+                    "isAttr": true
+                }
+			]
+        },
+		{
+			"name": "dadosEntrada",
+			"superClass": [ "CallActivityExtension" ],
+            "properties": [
+            	{
+                    "name": "linguagem",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "script",
+                    "type": "String",
+                    "isBody": true
+                }
+			]
+		},
+		{ 
+			"name": "dadosRetorno",
+			"superClass": [ "CallActivityExtension" ],
+            "properties": [
+            	{
+                    "name": "linguagem",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "script",
+                    "type": "String",
+                    "isBody": true
+                }
+			]
+		},
+        {
+            "name": "ServiceTask",
+            "isAbstract": true,
+            "extends": [
+              "bpmn:ServiceTask"
+            ],
+            "properties": [
+                {
+                    "name": "typeImplementation",
+                    "isAttr": true,
+                    "type": "String"
+                }
+            ]
+        },
+        {
+            "name": "EmailExtension",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "codSmtp",
+                    "type": "Integer",
+                    "isAttr": true
+                },
+                {
+                    "name": "emailTo",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "subject",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "messageEmail",
+                    "type": "Expression",
+                    "xml": {
+                        "serialize": "xsi:type"
+                    }
+                },
+                {
+    				"name": "attachments",
+        			"type": "EmailAttachment",
+        			"isMany": false
+    			}
+            ]
+        },
+        {
+            "name": "ServiceTaskExtension",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "codUsuExec",
+                    "type": "Integer",
+                    "isAttr": true
+                },
+                {
+                    "name": "type",
+                    "type": "Integer",
+                    "isAttr": true
+                },
+                {
+                    "name": "prcName",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "module",
+                    "type": "Integer",
+                    "isAttr": true
+                },
+                {
+                    "name": "class",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "script",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "scriptFormat",
+                    "type": "String",
+                    "isAttr": true
+                }
+            ]
+        },
+         {
+            "name": "PlatformService",
+            "superClass": ["Element"],
+            "properties": [
+                 {
+                    "name": "namePlaformService",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "params",
+                    "type": "params",
+                    "isMany": true
+                },
+                {
+                    "name": "retornoService",
+                    "type": "retornoService",
+                    "isMany": true
+                },
+                {
+                    "name": "codUsuExec",
+                    "type": "Integer",
+                    "isAttr": true
+                }
+            ]
+        },  
+        {
+            "name": "params",
+            "superClass": ["PlatformService"],
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "isBody": true
+                }
+            ]
+         },
+         {
+           "name": "retornoService",
+            "superClass": ["PlatformService"],
+            "properties": [
+                {
+                    "name": "value",
+                    "type": "String",
+                    "isBody": true
+                }
+            ]
+         },
+         {
+			"name": "WebServiceInterno",
+			"superClass": ["Element"],
+			"properties": [
+            	{
+                    "name": "codUsuExec",
+                    "type": "Integer",
+                    "isAttr": true
+                },
+				{
+                    "name": "servico",
+                    "type": "String",
+                    "isAttr": true
+				},
+				{
+                    "name": "requisicaoServiceInterno",
+                    "type": "requisicaoServiceInterno",
+                    "isMany": true
+				},
+				{
+                    "name": "retornoServiceInterno",
+                    "type": "retornoServiceInterno",
+                    "isMany": true
+				}
+			]
+         },
+         {
+           "name": "requisicaoServiceInterno",
+            "superClass": ["WebServiceInterno"],
+            "properties": [
+            	{
+                    "name": "linguagem",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "script",
+                    "type": "String",
+                    "isBody": true
+                }
+            ]
+         },
+         {
+           "name": "retornoServiceInterno",
+            "superClass": ["WebServiceInterno"],
+            "properties": [
+            	{
+                    "name": "linguagem",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "script",
+                    "type": "String",
+                    "isBody": true
+                }
+            ]
+         },
+         {
+        	"name": "WebServiceExterno",
+            "superClass": [
+            	"Element"
+            ],
+            "properties": [
+            	{
+                    "name": "codUsuExec",
+                    "type": "Integer",
+                    "isAttr": true
+                },
+                {
+                    "name": "url",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                	"name": "metodo",
+                	"type": "String",
+                	"isAttr": true
+                },
+                {
+                	"name": "tipoenvio",
+                	"type": "String",
+                	"isAttr": true
+                },
+                {
+                	"name": "headersServiceExterno",
+                	"type": "headersServiceExterno",
+                    "isMany": true
+                },
+                {
+                    "name": "variaveisServiceExterno",
+                    "type": "variaveisServiceExterno",
+                    "isMany": true
+                },
+                {
+                    "name": "envioServiceExterno",
+                    "type": "envioServiceExterno",
+                    "isMany": true
+                },
+                {
+                    "name": "retornoServiceExterno",
+                    "type": "retornoServiceExterno",
+                    "isMany": true
+                }
+            ]
+        },
+        {
+           "name": "headersServiceExterno",
+            "superClass": [
+            	"WebServiceExterno"
+            ],
+            "properties": [
+            	{
+                    "name": "headersParams",
+                    "type": "headersParams",
+                    "isMany": true
+                }
+            ]
+		},
+		{
+            "name": "headersParams",
+            "superClass": ["headersServiceExterno"],
+            "properties": [
+                {
+                    "name": "nome",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "valor",
+                    "type": "String",
+                    "isBody": true
+                }
+            ]
+		},
+        {
+           "name": "variaveisServiceExterno",
+            "superClass": [
+            	"WebServiceExterno"
+            ],
+            "properties": [
+            	{
+                    "name": "linguagem",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "script",
+                    "type": "String",
+                    "isBody": true
+                }
+            ]
+         },
+         {
+           "name": "envioServiceExterno",
+            "superClass": [
+            	"WebServiceExterno"
+            ],
+            "properties": [
+            	{
+                    "name": "linguagem",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "script",
+                    "type": "String",
+                    "isBody": true
+                }
+            ]
+        },
+        {
+           "name": "retornoServiceExterno",
+            "superClass": [
+            	"WebServiceExterno"
+            ],
+            "properties": [
+            	{
+                    "name": "linguagem",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "script",
+                    "type": "String",
+                    "isBody": true
+                }
+            ]
+		},
+		{
+            "name": "UserTaskExtension",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "appointment",
+                    "type": "Boolean",
+                    "isAttr": true
+                },
+                {
+                    "name": "appointmentCrud",
+                    "type": "Boolean",
+                    "isAttr": true
+                },
+                {
+                    "name": "notificationCandidate",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "notificationOwner",
+                    "type": "String",
+                    "isAttr": true
+				},
+                {
+                	"name": "historyTemplate",
+                    "type": "HistoryTemplate",
+                    "isMany": true
+                }
+            ]
+        },
+        {
+            "name": "HistoryTemplate",
+            "superClass": [
+                "UserTaskExtension"
+            ],
+            "properties": [
+                {
+                    "name": "body",
+                    "type": "String",
+                    "isBody": true
+                }
+            ]
+        },
+        {
+            "name": "UserCandidate",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "userCandidateAttributes",
+                    "type": "UserCandidateAttribute",
+                    "isMany": true
+                },
+                {
+                    "name": "dynamicUserCandidate",
+                    "type": "dynamicUserCandidate",
+                    "isMany": true
+                }
+            ]
+        },
+        {
+            "name": "UserCandidateAttribute",
+            "superClass": [
+                "UserCandidate"
+            ],
+            "properties": [
+                {
+                    "name": "typeExtension",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "codUsu",
+                    "type": "Integer",
+                    "isAttr": true
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "status",
+                    "type": "Boolean",
+                    "isAttr": true
+                }
+            ]
+        },
+        {
+            "name": "dynamicUserCandidate",
+            "superClass": [
+                "UserCandidate"
+            ],
+            "properties": [
+                {
+                    "name": "language",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "body",
+                    "type": "String",
+                    "isBody": true
+                },
+                {
+                 	"name": "switchExpressionUser",
+                    "type": "String",
+                   "isAttr": true
+                }
+            ]
+        },
+        {
+            "name": "VariableExtension",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "variableExtensionAttributes",
+                    "type": "VariableExtensionAttribute",
+                    "isMany": true
+                }
+            ]
+        },
+        {
+            "name": "VariableExtensionAttribute",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "typeExtension",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "type",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "description",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "scope",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "defaultValue",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "required",
+                    "type": "Boolean",
+                    "isAttr": true
+                },
+                {
+                    "name": "reading",
+                    "type": "Boolean",
+                    "isAttr": true
+                },
+                {
+                    "name": "properties",
+                    "type": "Property",
+                    "isMany": true
+                }
+            ]
+        },
+        {
+        	"name": "ReportTaskExtension",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+               {
+                    "name": "reportExtensionAttributes",
+                    "type": "ReportExtensionAttribute",
+                    "isMany": true
+                }
+            ]
+        },
+        {
+            "name": "ReportExtensionAttribute",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                
+                 {
+                    "name": "nurfe",
+                    "type": "Integer",
+                    "isAttr": true
+                 },
+                 {
+                    "name": "description",
+                    "type": "String",
+                    "isAttr": true
+                 } 
+            ]
+        },
+       {
+        	"name": "DashBoardExtension",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+               {
+                    "name": "dashBoardAttributes",
+                    "type": "DashBoardAttribute",
+                    "isMany": true
+                }
+            ]
+        },
+        {
+            "name": "DashBoardAttribute",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                
+                 {
+                    "name": "nugdg",
+                    "type": "Integer",
+                    "isAttr": true
+                 },
+                 {
+                    "name": "titulo",
+                    "type": "String",
+                    "isAttr": true
+                 } 
+            ]
+        },
+         {
+        	"name": "EventTaskExtension",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+               {
+                    "name": "eventExtensionAttributes",
+                    "type": "EventExtensionAttribute",
+                    "isMany": true
+                }
+            ]
+        },
+        {
+            "name": "EventExtensionAttribute",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                
+                 {
+                    "name": "descrevento",
+                    "type": "String",
+                    "isAttr": true
+                 },
+                 {
+                    "name": "onde",
+                    "type": "String",
+                    "isAttr": true
+                 },
+                 {
+                 	"name": "acao",
+                    "type": "String",
+                    "isAttr": true
+                 },
+                 {
+                    "name": "tipoAcao",
+                    "type": "Integer",
+                    "isAttr": true
+                 },
+                 {
+                 	"name": "quando",
+                    "type": "String",
+                    "isAttr": true
+                 },
+                 {
+                 	"name": "form",
+                    "type": "String",
+                    "isAttr": true
+                 },
+                 {
+                 	"name": "formato",
+                    "type": "String",
+                    "isAttr": true
+                 } ,
+                 {
+                 	"name": "referencia",
+                    "type": "String",
+                    "isBody": true
+                 }
+            ]
+        },
+        {
+            "name": "FormExtension",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "formExtensionAttributes",
+                    "type": "FormExtensionAttribute",
+                    "isMany": true
+                }
+            ]
+        },
+        {
+            "name": "FormNativoExtension",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "formExtensionAttributes",
+                    "type": "FormExtensionAttribute",
+                    "isMany": true
+                }
+            ]
+        },
+        {
+            "name": "instanciaForm",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+               {
+                    "name": "formExtensionAttributes",
+                    "type": "FormExtensionAttribute",
+                    "isMany": true
+                }
+            ]
+        },
+        {
+            "name": "FormExtensionAttribute",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "typeExtension",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "nuIns",
+                    "type": "Integer",
+                    "isAttr": true
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "description",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "cardinality",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "scope",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "politicaReetrancia",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "salvarDestino",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "ordem",
+                    "type": "Integer",
+                    "isAttr": true
+                },
+                {
+                    "name": "ordemAbas",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "fieldProperty",
+                    "type": "fieldProperty",
+                    "isMany": true
+                },
+                {
+                    "name": "instanciaForm",
+                    "type": "instanciaForm",
+                    "isMany": true
+                 },
+                 {
+                    "name": "utilizaTarefa",
+                    "type": "String",
+                    "isAttr": true
+                 },
+                 {
+                    "name": "salvarSemCriarVersao",
+                    "type": "String",
+                    "isAttr": true
+                }
+            ]
+        },
+        {
+            "name": "fieldProperty",
+            "superClass": [
+                "FormExtensionAttribute"
+            ],
+            "properties": [
+                {
+                    "name": "nome",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "descricao",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "nomeAba",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "grupo",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "visivel",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "somenteLeitura",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "nomeEvento",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "descrevento",
+                    "type": "String",
+                    "isAttr": true
+                },
+              	{
+              		"name": "properties",
+                    "type": "Property",
+                    "isMany": true
+                },
+                {
+                    "name": "obrigatorio",
+                    "type": "String",
+                    "isAttr": true
+                }
+            ]
+        },
+        {
+            "name": "Property",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "isAttr": true
+                },
+                
+                {
+                    "name": "body",
+                    "type": "String",
+                    "isBody": true
+                }
+            ]
+        },
+        {
+        "name": "EmailAttachment",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "items",
+                    "type": "EmailAttachmentItem",
+                    "isMany": true
+                }]
+        },
+        {
+            "name": "EmailAttachmentItem",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "attach_type",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "isAttr": true
+                },
+
+                {
+                    "name": "value",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                	"name": "attach_mode",
+                	"type": "String",
+                	"isAttr": true
+                }
+            ]
+        },
+        {
+		    "name": "TaskServiceFormNativoExtension",
+	        "superClass": [
+		        "Element"
+	        ],
+	        "properties": [
+		       {
+		 	     "name": "taskServiceFormNativoAttributes",
+			     "type": "TaskServiceFormNativoAttribute",
+			     "isMany": true
+		       }
+	        ]
+       },
+       {
+	      "name": "TaskServiceFormNativoAttribute",
+	      "superClass": [
+		     "Element"
+	      ],
+	      "properties": [
+		     {
+			   "name": "nuIns",
+			   "type": "Integer",
+			   "isAttr": true
+		     },
+		    {
+		 	   "name": "name",
+			   "type": "String",
+			   "isAttr": true
+		    } 
+	     ]
+       },
+       {
+            "name": "SlaExtension",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "slaItens",
+                    "type": "SlaItem",
+                    "isMany": true
+       }
+            ]
+        },
+        {
+         "name": "SlaItem",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "solutionterm",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "solutiontermvalue",
+                    "type": "Float",
+                    "isAttr": true
+                },
+                {
+                    "name": "workload",
+                    "type": "Integer",
+                    "isAttr": true
+                },
+                {
+                	"name": "workloaddescription",
+                	"type": "String",
+                	"isAttr": true
+                },
+                 {
+                    "name": "status",
+                    "type": "String",
+                    "isAttr": true
+                },
+                {
+                    "name": "SlaInitRules",
+                    "type": "SlaInitRules",
+                    "isMany": true
+                },
+                {
+                    "name": "SlaSuspensionRules",
+                    "type": "SlaSuspensionRules",
+                    "isMany": true
+                },
+                {
+                	"name": "slaAlerts",
+                	"type": "SlaAlerts",
+                	"isMany": true
+                }
+            ]
+        },
+ 		{
+         "name": "SlaSuspensionRules",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+            	 {
+	             	"name": "SlaRule",
+	                "type": "SlaRule",
+	                "isMany": true
+	             }
+            ]
+       },
+       {
+         "name": "SlaInitRules",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+            	 {
+	             	"name": "SlaRule",
+	                "type": "SlaRule",
+	                "isMany": true
+	             }
+            ]
+       },
+
+       {
+       		"name": "SlaRule",
+            "superClass": [
+                "Element"
+            ],
+            "properties": [
+            	{
+	             	"name": "type",
+	                "type": "String",
+	                "isAttr": true
+	             },
+	             {
+	             	"name": "status",
+	                "type": "String",
+	                "isAttr": true
+	             },
+	             {
+	             	"name": "tarefa",
+	                "type": "String",
+	                "isAttr": true
+	             },
+	             {
+	             	"name": "quando",
+	                "type": "String",
+	                "isAttr": true
+	             },
+	             {
+                    "name": "body",
+                    "type": "String",
+                    "isBody": true
+                 }
+            ]
+       },
+       {
+       	"name": "SlaAlerts",
+       	"superClass": ["Element"],
+       	"properties": [
+       		{
+       			"name": "counttype",
+       			"type": "String",
+       			"isAttr": true
+       		},
+       		{
+       			"name": "itens",
+       			"type": "SlaAlert",
+       			"isMany": true
+       		}
+       	]
+       },
+       {
+       		"name": "SlaAlert",
+       		"superClass": [
+       			"Element"
+       		],
+       		"properties": [
+       			{
+       				"name": "situacao",
+       				"type": "String",
+       				"isAttr": true 
+
+       			},
+       			{
+       				"name": "name",
+       				"type": "String",
+       				"isAttr": true
+
+       			},
+       			{
+       				"name": "status",
+       				"type": "String",
+       				"isAttr": true
+       			},
+       			{
+       				"name": "elapsed",
+       				"type": "Float",
+       				"isAttr": true
+       			},
+       			{
+       				"name": "color",
+       				"type": "String",
+       				"isAttr": true
+       			},
+       			{
+       				"name": "notificationtype",
+       				"type": "String",
+       				"isAttr": true
+       			},
+       			{
+       				"name": "notifyowner",
+       				"type": "String",
+       				"isAttr": true
+       			},
+       			{
+       				"name": "smtpaccount",
+       				"type": "String",
+       				"isAttr": true
+       			},
+       			{
+       				"name": "scriptsql",
+       				"type": "String",
+       				"isBody": true
+       			}
+       		]
+       }
+
+    ]
+}
