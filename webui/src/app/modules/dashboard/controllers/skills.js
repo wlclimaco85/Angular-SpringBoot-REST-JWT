@@ -10,13 +10,13 @@
 
 //dashboard.controller('SkillController', ['ObjectUtils', 'SkApplicationInstance', 'MessageUtils', 'i18n',
 //    function(ObjectUtils, SkApplicationInstance, MessageUtils, i18n) {
-dashboard.controller('SkillController', ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash',
-    function($rootScope, $scope, $state, $location, dashboardService, Flash) {
+dashboard.controller('SkillController', ['ObjectUtils', '$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash',
+    function(ObjectUtils, $rootScope, $scope, $state, $location, dashboardService, Flash) {
         var self = this
 
-        // ObjectUtils.implements(self, IDynaformInterceptor);
-        //  ObjectUtils.implements(self, IDatagridInterceptor);
-        // ObjectUtils.implements(self, IFormInterceptor);
+        ObjectUtils.implements(self, IDynaformInterceptor);
+        ObjectUtils.implements(self, IDatagridInterceptor);
+        ObjectUtils.implements(self, IFormInterceptor);
 
         self.onDynaformLoaded = onDynaformLoaded;
         self.acceptField = acceptField;
