@@ -82,7 +82,6 @@ app.service('apiService', ['$http', '$q', 'appSettings', function($http, $q, app
         console.log("LOGIN Service=============");
 
         var deferred = $q.defer();
-        debugger
         //   $http.post(_url, _req, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
         $http.post(_url, _req, { headers: { 'Content-Type': 'application/json' } }).success(function(response) {
             //$http.post(_url + module + '/' + parameter.id, parameter, { headers: { 'Content-Type': 'application/json' } }).success(function(response) {

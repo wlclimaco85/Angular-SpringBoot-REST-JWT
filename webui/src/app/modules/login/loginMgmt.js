@@ -9,7 +9,7 @@
 
  ===========================================================*/
 
-var login = angular.module('login', ['ui.router', 'ngResource', 'ngAnimate', 'snk']);
+var login = angular.module('login', ['ui.router', 'ngResource', 'ngAnimate', 'LocalStorageModule', 'snk']);
 
 
 login.config(["$stateProvider", function($stateProvider) {
