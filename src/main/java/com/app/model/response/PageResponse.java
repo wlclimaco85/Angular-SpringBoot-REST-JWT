@@ -1,10 +1,12 @@
 package com.app.model.response;
 
-import io.swagger.annotations.*;
-import org.springframework.data.domain.*;
-import lombok.*;
-import java.util.*;
-import static com.app.model.response.OperationResponse.*;
+import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
+
+import lombok.Getter;
+import lombok.Setter;
 
 //@Data //for getters and setters
 public class PageResponse extends OperationResponse {
@@ -16,7 +18,7 @@ public class PageResponse extends OperationResponse {
   @Getter @Setter private int totalPages;
   @Getter @Setter private long totalItems;
   @Getter @Setter private Sort sort;
-  private List items;
+  //@Getter @Setter private List items;
 
   public void setPageStats(Page pg, boolean setDefaultMessage){
     this.first             = pg.isFirst();
@@ -26,7 +28,7 @@ public class PageResponse extends OperationResponse {
     this.pageSize          = pg.getSize();
     this.totalPages        = pg.getTotalPages();
     this.totalItems        = pg.getTotalElements();
-    //this.items             = pg.getContent();
+   // this.items             = pg.getContent();
     this.sort              = pg.getSort();
     if (setDefaultMessage == true){
       this.setOperationStatus(ResponseStatusEnum.SUCCESS);
@@ -35,7 +37,7 @@ public class PageResponse extends OperationResponse {
   }
 
   public void setPageTotal(int count, boolean setDefaultMessage){
-    //this.items             = list;
+  //  this.items             = list;
     this.first             = true;
     this.last              = true;
     this.itemsInPage       = count;

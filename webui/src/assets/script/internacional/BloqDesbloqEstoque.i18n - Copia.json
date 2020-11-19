@@ -1,0 +1,10 @@
+{
+    "locale": "pt_BR",
+    "namespace": "armazem.BloqDesbloqEstoque",
+    "context": "armazem",
+    "i18nDictionary": [],
+    "i18nBundles": [],
+    "i18n": {
+        "msgValidaQtdNegativo": "A quantidade não pode ser menor que zero!"
+    }
+}
